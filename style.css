@@ -1,0 +1,36 @@
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 50px;
+}
+
+#progress-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+#progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+
+.toggle-switch {
+    margin-top: 20px;
+}
+
+/* Light/Dark mode styles */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode #progress-bar {
+    stroke: white;
+}
