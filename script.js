@@ -27,17 +27,32 @@ function getDayOfYear(d) {
 }
 document.getElementById("day-number").textContent = getDayOfYear(today);
 
-// Donut chart progress
+// Chart progress
 const progressBar = document.getElementById('progress-bar');
 const totalDays = 365;
 const dayOfYear = getDayOfYear(today);
 const percentageComplete = (dayOfYear / totalDays) * 100;
 
-progressBar.style.strokeDashoffset = 283 - (283 * (percentageComplete / 100));
-document.getElementById('progress-text').textContent = `${percentageComplete.toFixed(2)}%`;
+function updateProgress() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const start = new Date(currentYear, 0, 0);
+    const diff = now - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const day = Math.floor(diff / oneDay);
+    const percentage = (day / 365) * 100;
 
-// Toggle light/dark mode
-const toggle = document.getElementById('mode-toggle');
-toggle.addEventListener('change', () => {
-    document.body.classList.toggle('dark-mode');
-});
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+    const yearCompleted = document.getElementById('year-completed');
+    const currentDate = document.getElementById('current-date');
+    
+    progressFill.style.width = `${percentage}%`;
+    yearCompleted.textContent = `${currentYear} is ${percentage.toFixed(2)}% complete`;
+    currentDate.textContent = now.toDateString(); // Display the current date
+}
+
+// Call updateProgress when the page loads
+document.addEventListener('DOMContentLoaded', updateProgress);
+
+

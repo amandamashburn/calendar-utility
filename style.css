@@ -7,34 +7,42 @@ body {
 }
 
 #progress-container {
-    position: relative;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 300px;
     margin: 20px auto;
+    text-align: center;
 }
 
-#progress-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
+#progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #E0E0E0;
+    border-radius: 7px;
+    overflow: hidden;
+    margin-top: 50px;
 }
 
-.toggle-switch {
-    margin-top: 20px;
+#progress-fill {
+    height: 100%;
+    background-color: #000;
+    width: 0%; /* This will be updated by JavaScript */
+    transition: width 0.5s ease-in-out;
 }
 
-/* Light/Dark mode styles */
-.dark-mode {
-    background-color: black;
-    color: white;
-}
-
-.dark-mode #progress-bar {
-    stroke: white;
+#year-completed {
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 .info-section {
     margin-top: 50px;
+}
+
+.x-icon {
+    display: inline-block;
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+    padding-top: 20px;
+    margin-top: 20px;
 }
