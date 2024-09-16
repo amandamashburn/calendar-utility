@@ -1,7 +1,8 @@
 // Get current date
 const dateElement = document.getElementById("current-date");
 const today = new Date();
-dateElement.textContent = today.toISOString().split('T')[0].replace(/-/g, '.');
+const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+dateElement.textContent = today.toLocaleDateString(undefined, options).replace(/\//g, '.');
 
 // Calculate week number (ISO 8601)
 function getWeekNumber(d) {
