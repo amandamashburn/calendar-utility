@@ -34,3 +34,7 @@ body {
 .dark-mode #progress-bar {
     stroke: white;
 }
+
+.info-section {
+    margin-top: 50px;
+}

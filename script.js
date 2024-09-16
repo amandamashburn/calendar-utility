@@ -1,8 +1,10 @@
 // Get current date
 const dateElement = document.getElementById("current-date");
 const today = new Date();
-const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-dateElement.textContent = today.toLocaleDateString(undefined, options).replace(/\//g, '.');
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, '0');
+const day = String(today.getDate()).padStart(2, '0');
+dateElement.textContent = `${year}.${month}.${day}`;
 
 // Calculate week number (ISO 8601)
 function getWeekNumber(d) {
@@ -32,7 +34,7 @@ const dayOfYear = getDayOfYear(today);
 const percentageComplete = (dayOfYear / totalDays) * 100;
 
 progressBar.style.strokeDashoffset = 283 - (283 * (percentageComplete / 100));
-document.getElementById('progress-text').textContent = `${Math.round(percentageComplete)}%`;
+document.getElementById('progress-text').textContent = `${percentageComplete.toFixed(2)}%`;
 
 // Toggle light/dark mode
 const toggle = document.getElementById('mode-toggle');

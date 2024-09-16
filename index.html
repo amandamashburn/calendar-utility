@@ -13,12 +13,14 @@
         <div id="progress-container">
             <svg width="200" height="200" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" stroke="#E0E0E0" stroke-width="10" fill="none" />
-                <circle cx="50" cy="50" r="45" stroke="#000" stroke-width="10" fill="none" stroke-dasharray="283" stroke-dashoffset="0" id="progress-bar"/>
+                <circle cx="50" cy="50" r="45" stroke="#000" stroke-width="10" fill="none" stroke-dasharray="283" stroke-dashoffset="283" id="progress-bar" transform="rotate(-90 50 50)"/>
             </svg>
             <div id="progress-text"></div>
         </div>
-        <p>Week Number: <span id="week-number"></span></p>
-        <p>Day Number: <span id="day-number"></span></p>
+        <div class="info-section">
+            <p>Week Number: <span id="week-number"></span></p>
+            <p>Days Completed: <span id="day-number"></span></p>
+        </div>
         <div class="toggle-switch">
             <label for="mode-toggle">Light/Dark Mode</label>
             <input type="checkbox" id="mode-toggle">
