@@ -22,15 +22,39 @@
             <p>Week Number: <span id="week-number"></span></p>
             <p>Days Completed: <span id="day-number"></span></p>
         </div>
+        <div id="formatted-date" class="formatted-date"></div>
+        
+        <!-- Year Calendar Table -->
+        <div class="calendar-container">
+            <table id="calendar-table">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>MON</th>
+                        <th>TUE</th>
+                        <th>WED</th>
+                        <th>THU</th>
+                        <th>FRI</th>
+                        <th>SAT</th>
+                        <th>SUN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically populated with JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
         <div class="icon-container">
+            <a href="https://github.com/your-repo" target="_blank" rel="noopener noreferrer" class="github-icon">
+                <i class="fa-brands fa-github"></i>
+            </a>
             <a href="https://x.com/AmandaMashburn0" target="_blank" rel="noopener noreferrer" class="x-icon">
                 <i class="fa-brands fa-square-x-twitter"></i>
-            </a>
-            <a href="https://github.com/amandamashburn/calendar-utility" target="_blank" rel="noopener noreferrer" class="github-icon">
-                <i class="fa-brands fa-github"></i>
             </a>
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="calendar.js"></script>
 </body>
 </html>
