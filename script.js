@@ -16,8 +16,6 @@ function getWeekNumber(d) {
     return weekNo;
 }
 
-document.getElementById("week-number").textContent = getWeekNumber(today);
-
 // Day number of the year
 function getDayOfYear(d) {
     const start = new Date(d.getFullYear(), 0, 0);
@@ -25,34 +23,51 @@ function getDayOfYear(d) {
     const oneDay = 1000 * 60 * 60 * 24;
     return Math.floor(diff / oneDay);
 }
-document.getElementById("day-number").textContent = getDayOfYear(today);
 
-// Chart progress
-const progressBar = document.getElementById('progress-bar');
-const totalDays = 365;
+// Keep the getDayOfYear function for use in progress bar calculations
 const dayOfYear = getDayOfYear(today);
+const totalDays = 365; // or 366 for leap years
 const percentageComplete = (dayOfYear / totalDays) * 100;
 
 function updateProgress() {
     const now = new Date();
-    const currentYear = now.getFullYear();
-    const start = new Date(currentYear, 0, 0);
+    const start = new Date(now.getFullYear(), 0, 0);
     const diff = now - start;
     const oneDay = 1000 * 60 * 60 * 24;
-    const day = Math.floor(diff / oneDay);
-    const percentage = (day / 365) * 100;
+    const dayOfYear = Math.floor(diff / oneDay);
+    const totalDays = 365; // or 366 for leap years
+    const percentageComplete = (dayOfYear / totalDays) * 100;
 
     const progressFill = document.getElementById('progress-fill');
     const progressText = document.getElementById('progress-text');
     const yearCompleted = document.getElementById('year-completed');
     const currentDate = document.getElementById('current-date');
     
-    progressFill.style.width = `${percentage}%`;
-    yearCompleted.textContent = `${currentYear} is ${percentage.toFixed(2)}% complete`;
+    progressFill.style.width = `${percentageComplete}%`;
+    yearCompleted.textContent = `${now.getFullYear()} is ${percentageComplete.toFixed(2)}% complete`;
     currentDate.textContent = now.toDateString(); // Display the current date
 }
 
 // Call updateProgress when the page loads
 document.addEventListener('DOMContentLoaded', updateProgress);
+
+function updateWeekInfo() {
+    const now = new Date();
+    const currentWeek = getWeekNumber(now);
+    
+    // Calculate full weeks remaining
+    const totalWeeks = 52; // Assuming 52 weeks in a year
+    const weeksRemaining = totalWeeks - currentWeek;
+    
+    // Update the DOM
+    document.getElementById('weeks-remaining').textContent = weeksRemaining;
+}
+
+// Call this function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    updateWeekInfo();
+    updateProgress();
+});
+
 
 
